@@ -235,6 +235,7 @@ const gamingPC = {
   assemblyFeeEUR: 50
 };
 
+document.body.classList.toggle('dark');
 
 /* ====== UTILIDADES UI ====== */
 
@@ -284,7 +285,52 @@ function renderComponents(pcObj){
     list.appendChild(li);
   });
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const preview = document.querySelector('.image-preview');
+  const items = document.querySelectorAll('.component-item');
 
+  if (!preview || !items.length) return;
+
+  const updatePosition = (el) => {
+    const rect = el.getBoundingClientRect();
+    const center = window.innerWidth / 2;
+    // usa el centro del elemento para decidir lado
+    const elementCenter = rect.left + rect.width / 2;
+    if (elementCenter < center) {
+      preview.classList.remove('left');
+      preview.classList.add('right');
+    } else {
+      preview.classList.remove('right');
+      preview.classList.add('left');
+    }
+  };
+
+  const showPreview = (el) => {
+    updatePosition(el);
+    preview.classList.add('preview-visible');
+    // si los items tienen data-img / data-title puedes setear contenido dinámicamente:
+    const imgSrc = el.dataset.img;
+    const title = el.dataset.title;
+    const imgEl = preview.querySelector('img');
+    const metaEl = preview.querySelector('#preview-meta');
+
+    if (imgEl && imgSrc) imgEl.src = imgSrc;
+    if (metaEl && title) metaEl.textContent = title;
+  };
+
+  items.forEach((it) => {
+    it.addEventListener('mouseenter', () => showPreview(it));
+    it.addEventListener('mouseleave', () => preview.classList.remove('preview-visible'));
+    it.addEventListener('focus', () => showPreview(it));   // accesibilidad teclado
+    it.addEventListener('blur', () => preview.classList.remove('preview-visible'));
+  });
+
+  // re-evalúa la posición al redimensionar si la preview está visible
+  window.addEventListener('resize', () => {
+    const visible = document.querySelector('.component-item:hover, .component-item:focus');
+    if (visible) updatePosition(visible);
+  });
+});
 /* Preview logic */
 const preview = document.getElementById("preview");
 const previewImg = document.getElementById("preview-img");

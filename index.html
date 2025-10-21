@@ -3,22 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Comparador PCs — Oficina & Gaming</title>
+  <title>Comparativa de PCs — Oficina vs Gaming | Rendimiento y Precio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <h1>Comparador de PCs — Oficina & Gaming</h1>
-      <p class="subtitle">Detalles ampliados por componente, imágenes preview al pasar el ratón y precios aproximados.</p>
+  <header class="site-header hero">
+    <div class="hero-overlay">
+      <div class="wrap hero-content">
+        <h1>Comparativa de PCs: Oficina vs Gaming</h1>
+        <p class="subtitle">Descubre cuál PC se adapta mejor a ti: potencia, componentes, precios y rendimiento, todo en un solo lugar.</p>
+      </div>
     </div>
   </header>
 
   <main class="wrap main-grid">
-    <!-- Panels de cada PC -->
+    <!-- Paneles -->
     <section id="office" class="pc-panel">
-      <h2>PC de oficina</h2>
-      <p class="pc-desc">Montaje orientado a productividad con APU (gráfica integrada), almacenamiento NVMe y 32GB RAM.</p>
+      <h2>PC de Oficina</h2>
+      <p class="pc-desc">Montaje optimizado para productividad, fluidez y silencio. Perfecto para tareas cotidianas y ofimática avanzada.</p>
       <div class="pc-top">
         <img id="office-cover" class="pc-cover" alt="PC Oficina" />
         <div class="pc-summary">
@@ -27,13 +29,12 @@
           <button id="office-toggle" class="btn">Ver componentes</button>
         </div>
       </div>
-
       <ul id="office-components" class="component-list hidden"></ul>
     </section>
 
     <section id="gaming" class="pc-panel">
       <h2>PC Gaming</h2>
-      <p class="pc-desc">Montaje high-end para gaming / creación de contenido: CPU top, GPU dedicada y NVMe PCIe 5.0.</p>
+      <p class="pc-desc">Diseñado para gamers y creadores: potencia extrema, GPU dedicada y velocidad de vértigo con NVMe PCIe 5.0.</p>
       <div class="pc-top">
         <img id="gaming-cover" class="pc-cover" alt="PC Gaming" />
         <div class="pc-summary">
@@ -42,20 +43,18 @@
           <button id="gaming-toggle" class="btn">Ver componentes</button>
         </div>
       </div>
-
       <ul id="gaming-components" class="component-list hidden"></ul>
     </section>
 
-    <!-- Comparativa dinámica -->
     <section id="comparison" class="pc-panel full-width">
-      <h2>Comparativa dinámica</h2>
-      <p class="pc-desc">Tabla que une claves comunes y muestra diferencias. Los campos se generan desde los objetos JS.</p>
+      <h2>Comparativa Dinámica</h2>
+      <p class="pc-desc">Compara especificaciones, precios y diferencias clave entre ambos equipos. Datos generados dinámicamente.</p>
 
       <div class="table-wrap">
         <table id="comparison-table" class="compare-table">
           <thead>
             <tr>
-              <th>Componente / Campo</th>
+              <th>Componente</th>
               <th>PC Oficina</th>
               <th>PC Gaming</th>
             </tr>
@@ -63,7 +62,7 @@
           <tbody id="comparison-body"></tbody>
           <tfoot>
             <tr class="summary-row">
-              <td>Total aprox. (componentes)</td>
+              <td>Total aproximado</td>
               <td id="cmp-office-total"></td>
               <td id="cmp-gaming-total"></td>
             </tr>
@@ -73,15 +72,17 @@
     </section>
   </main>
 
-  <aside id="preview" class="image-preview">
+  <aside id="preview" class="image-preview left">
     <img id="preview-img" alt="Preview componente" />
     <div id="preview-meta"></div>
   </aside>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <p>Página creada por <strong>Ro G.</strong> con IA para la asignatura de <em>Montaje y Mantenimiento de Equipos</em>. Todos los derechos reservados.</p>
+    <div class="wrap footer-links">
+      <a href="https://es.pcpartpicker.com/list/LrVbmC" target="_blank">PC de Oficina</a> |
+      <a href="https://es.pcpartpicker.com/list/BjGVxg" target="_blank">PC Gaming</a>
     </div>
+    <p class="footer-text">Página web creada por Ro G. con ayuda de la IA. Todos los derechos reservados.</p>
   </footer>
 
   <script src="script.js"></script>
