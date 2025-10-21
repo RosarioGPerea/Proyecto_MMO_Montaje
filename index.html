@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comparador PCs — Oficina & Gaming</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Comparador de PCs — Oficina & Gaming</h1>
+      <p class="subtitle">Detalles ampliados por componente, imágenes preview al pasar el ratón y precios aproximados.</p>
+    </div>
+  </header>
+
+  <main class="wrap main-grid">
+    <!-- Panels de cada PC -->
+    <section id="office" class="pc-panel">
+      <h2>PC de oficina</h2>
+      <p class="pc-desc">Montaje orientado a productividad con APU (gráfica integrada), almacenamiento NVMe y 32GB RAM.</p>
+      <div class="pc-top">
+        <img id="office-cover" class="pc-cover" alt="PC Oficina" />
+        <div class="pc-summary">
+          <h3 id="office-name"></h3>
+          <p id="office-total" class="pc-price"></p>
+          <button id="office-toggle" class="btn">Ver componentes</button>
+        </div>
+      </div>
+
+      <ul id="office-components" class="component-list hidden"></ul>
+    </section>
+
+    <section id="gaming" class="pc-panel">
+      <h2>PC Gaming</h2>
+      <p class="pc-desc">Montaje high-end para gaming / creación de contenido: CPU top, GPU dedicada y NVMe PCIe 5.0.</p>
+      <div class="pc-top">
+        <img id="gaming-cover" class="pc-cover" alt="PC Gaming" />
+        <div class="pc-summary">
+          <h3 id="gaming-name"></h3>
+          <p id="gaming-total" class="pc-price"></p>
+          <button id="gaming-toggle" class="btn">Ver componentes</button>
+        </div>
+      </div>
+
+      <ul id="gaming-components" class="component-list hidden"></ul>
+    </section>
+
+    <!-- Comparativa dinámica -->
+    <section id="comparison" class="pc-panel full-width">
+      <h2>Comparativa dinámica</h2>
+      <p class="pc-desc">Tabla que une claves comunes y muestra diferencias. Los campos se generan desde los objetos JS.</p>
+
+      <div class="table-wrap">
+        <table id="comparison-table" class="compare-table">
+          <thead>
+            <tr>
+              <th>Componente / Campo</th>
+              <th>PC Oficina</th>
+              <th>PC Gaming</th>
+            </tr>
+          </thead>
+          <tbody id="comparison-body"></tbody>
+          <tfoot>
+            <tr class="summary-row">
+              <td>Total aprox. (componentes)</td>
+              <td id="cmp-office-total"></td>
+              <td id="cmp-gaming-total"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <aside id="preview" class="image-preview">
+    <img id="preview-img" alt="Preview componente" />
+    <div id="preview-meta"></div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Datos y precios aproximados — imágenes representativas. No he podido raspar directamente PCPartPicker (403). Si quieres las imágenes EXACTAS de tus enlaces pásamelas o habilita acceso y las sustituyo.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
